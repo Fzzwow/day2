@@ -57,9 +57,22 @@
 		  <li class="layui-nav-item layui-nav-itemed">
 		    <a href="javascript:;">默认展开</a>
 		    <dl class="layui-nav-child">
-		      <dd><a href="javascript:;">选项1</a></dd>
-		      <dd><a href="javascript:;">选项2</a></dd>
-		      <dd><a href="">跳转</a></dd>
+		      <dd>
+                <a href="javascript:;" kit-target data-options="{url:'test.html',icon:'&#xe6c6;',title:'表格',id:'1'}">
+                  <i class="layui-icon">&#xe6c6;</i><span> 表格</span></a>
+              </dd>
+              <dd>
+                <a href="javascript:;" data-url="form.html" data-icon="fa-user" data-title="表单" kit-target data-id='2'><i class="fa fa-user" aria-hidden="true"></i><span> 表单</span></a>
+              </dd>
+              <dd>
+                <a href="javascript:;" data-url="nav.html" data-icon="&#xe628;" data-title="导航栏" kit-target data-id='3'><i class="layui-icon">&#xe628;</i><span> 导航栏</span></a>
+              </dd>
+              <dd>
+                <a href="javascript:;" data-url="list4.html" data-icon="&#xe614;" data-title="列表四" kit-target data-id='4'><i class="layui-icon">&#xe614;</i><span> 列表四</span></a>
+              </dd>
+              <dd>
+                <a href="javascript:;" kit-target data-options="{url:'https://www.baidu.com',icon:'&#xe658;',title:'百度一下',id:'5'}"><i class="layui-icon">&#xe658;</i><span> 百度一下</span></a>
+              </dd>
 		    </dl>
 		  </li>
 		  <li class="layui-nav-item">
@@ -73,7 +86,10 @@
 			  <li class="layui-nav-item"><a href="">产品</a></li>
 			  <li class="layui-nav-item"><a href="">大数据</a></li>
 			</ul>
-        
+			
+			
+			
+      
           
       </div>
     </div>
@@ -142,7 +158,30 @@
           switchSkin(skin === undefined ? 'default' : skin);
         }();
         
-     
+        $(".lable_s").css("display","none")
+		$(".button_main").click(function(){
+			if($(event.target).next().css("display")== "none"){
+			$(".lable_s").animate({
+				height:'hide'
+				 });
+				 
+			$(event.target).siblings(".lable_s").animate({
+				height:'show'
+				});
+				
+				$(".fa").css("transform", "rotate(0deg)");
+			$(".fa").css("transition", "all 0.5s ease-in-out");
+				
+				$(event.target).children().css("transform", "rotate(180deg)");
+				$(event.target).children().css("transition", "all 0.5s ease-in-out");
+			}else{
+				$(".lable_s").animate({
+				height:'hide'
+				 });
+				$(event.target).children().css("transform", "rotate(0deg)");
+				$(event.target).children().css("transition", "all 0.5s ease-in-out");
+			}
+		});
         
     });
   </script>
